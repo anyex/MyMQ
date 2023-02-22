@@ -4,6 +4,8 @@
 #include <thread>
 #include <stdint.h>
 #include <sys/types.h>
+#include <errno.h>
+
 
 #define LOG(level,fmt, ...) \
     do\

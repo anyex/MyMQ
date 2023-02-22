@@ -2,5 +2,5 @@
 
 Server::Server(std::string name,const InetAddr &addr)
 {
-
+    
 }

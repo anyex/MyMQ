@@ -4,14 +4,15 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/c++/7",
-                "/usr/include/x86_64-linux-gnu/c++/7"
+                "/usr/include/**",
+                "/usr/include/x86_64-linux-gnu",
+                "/usr/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "",
             "cStandard": "c17",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-clang-x64"
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
