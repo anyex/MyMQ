@@ -25,7 +25,7 @@ int Socket::Accept(InetAddr *peerAddr)
     sockaddr_u addr;
     socklen_t len = sizeof addr;
     bzero(&addr, sizeof addr);
-    int connfd = ::accept(sockfd, (sockaddr*)&addr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
+    int connfd = accept4(sockfd, (sockaddr*)&addr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
     if (connfd >= 0)
     {
         peerAddr->SetSockAddr(addr);

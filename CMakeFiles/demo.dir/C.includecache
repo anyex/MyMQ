@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tbox/MyMQ/Logger.h
+iostream
+-
+time.h
+-
+thread
+-
+stdint.h
+-
+sys/types.h
+-
+errno.h
+-
+
+/home/tbox/MyMQ/main.c
+Logger.h
+/home/tbox/MyMQ/Logger.h
+

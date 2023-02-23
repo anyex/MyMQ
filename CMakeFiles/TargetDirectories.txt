@@ -1,0 +1,3 @@
+/home/tbox/MyMQ/CMakeFiles/rebuild_cache.dir
+/home/tbox/MyMQ/CMakeFiles/demo.dir
+/home/tbox/MyMQ/CMakeFiles/edit_cache.dir

@@ -7,6 +7,7 @@ InetAddr::InetAddr(int port,std::string ip)
     addr_in->sin_family = AF_INET;
     addr_in->sin_port = htons(port);
     addr_in->sin_addr.s_addr = inet_addr(ip.c_str());
+    domain = AF_INET;
 }
 
 InetAddr::InetAddr(std::string path)
@@ -18,6 +19,7 @@ InetAddr::InetAddr(std::string path)
     strncpy(addr_un->sun_path,
         path.c_str(),
         std::min(sizeof(addr_un->sun_path),path.length()));
+    domain = AF_UNIX;
 }
 
 const sockaddr * const InetAddr::GetAddr()
