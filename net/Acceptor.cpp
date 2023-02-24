@@ -1,4 +1,4 @@
-#include "Acceptor.h"
+#include "Acceptor.hpp"
 
 Acceptor::Acceptor(const InetAddr &addr):
     acceptSocket(addr)

@@ -1,5 +1,5 @@
-#include "InetAddr.h"
-#include "Socket.h"
+#include "InetAddr.hpp"
+#include "Socket.hpp"
 class Acceptor{
 public:
     Acceptor(const InetAddr &addr);

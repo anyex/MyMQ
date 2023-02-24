@@ -1,5 +1,5 @@
-#include "Socket.h"
-#include "Logger.h"
+#include "Socket.hpp"
+#include "Logger.hpp"
 #include <sys/socket.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -25,7 +25,7 @@ int Socket::Accept(InetAddr *peerAddr)
     sockaddr_u addr;
     socklen_t len = sizeof addr;
     bzero(&addr, sizeof addr);
-    int connfd = accept4(sockfd, (sockaddr*)&addr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
+    int connfd = accept(sockfd, (sockaddr*)&addr, &len);
     if (connfd >= 0)
     {
         peerAddr->SetSockAddr(addr);

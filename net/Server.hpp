@@ -1,6 +1,6 @@
 #include <string>
-#include "InetAddr.h"
-#include "Acceptor.h"
+#include "InetAddr.hpp"
+#include "Acceptor.hpp"
 class Server{
 public:
     Server(std::string name,const InetAddr &addr);

@@ -1,8 +1,6 @@
-#include "Logger.h"
+#include "util/Logger/Logger.hpp"
 
 int main()
 {
-    LOGE("调试日志");
-    LOGI("调试日志");
-    return 0;
+    LOGD("调试日志");
 }
