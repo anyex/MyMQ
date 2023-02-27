@@ -1,15 +1,18 @@
-#include<vector>
+#include <vector>
+#include <memory>
 class Channel;
-
+class Epoller;
 class EventLoop
 {
 public:
     EventLoop();
     ~EventLoop();
-
+    void Loop();
 private:
     void HandleRead();
-    void Loop();
 
-    std::vector<Channel> vecChannel;
+    std::vector<Channel*> vecActiveChannels;
+
+    std::unique_ptr<Epoller> poller;
+
 };

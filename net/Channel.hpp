@@ -12,6 +12,7 @@ public:
 
     void HandleEvent();
     int GetFd() {return fd;};
+    void SetEvents(int events) {this->events = events;};
 private:
     int fd;
     int events;

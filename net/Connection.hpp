@@ -22,5 +22,4 @@ private:
     std::unique_ptr<Socket> socket;
     std::unique_ptr<Channel> channel;
     std::string name;
-
 };

@@ -22,7 +22,7 @@
         tm_time.tm_sec);\
         char log[1024] = {0}; \
         snprintf(log,1024,fmt, ##__VA_ARGS__);\
-        std::cout<<buf<<"\t"<< std::this_thread::get_id()<<"\t"<<level<<"\t"<<log<<"\n";\
+        std::cout<<buf<<"\t"<< std::this_thread::get_id()<<"\t"<<level<<"\t"<<log<<std::endl;\
     } while(0);
     
 
