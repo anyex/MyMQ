@@ -1,4 +1,4 @@
-
+#include<vector>
 class Channel;
 
 class EventLoop
@@ -10,4 +10,6 @@ public:
 private:
     void HandleRead();
     void Loop();
+
+    std::vector<Channel> vecChannel;
 };
