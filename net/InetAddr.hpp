@@ -14,11 +14,12 @@ union sockaddr_u
 };
 
 
-
 class InetAddr{
+
 public:
     InetAddr(int port,std::string ip);
     InetAddr(std::string path);
+    InetAddr(){};
     const sockaddr * const GetAddr();
     const sockaddr* GetSockAddr() const {return &addr.sa;};
     void SetSockAddr(sockaddr_u addr) {

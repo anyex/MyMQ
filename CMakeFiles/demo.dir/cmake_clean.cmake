@@ -1,10 +1,13 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/demo.dir/Acceptor.o"
-  "CMakeFiles/demo.dir/EventLoop.o"
-  "CMakeFiles/demo.dir/InetAddr.o"
-  "CMakeFiles/demo.dir/Server.o"
-  "CMakeFiles/demo.dir/Socket.o"
   "CMakeFiles/demo.dir/main.o"
+  "CMakeFiles/demo.dir/net/Acceptor.o"
+  "CMakeFiles/demo.dir/net/Channel.o"
+  "CMakeFiles/demo.dir/net/Connection.o"
+  "CMakeFiles/demo.dir/net/Epoller.o"
+  "CMakeFiles/demo.dir/net/EventLoop.o"
+  "CMakeFiles/demo.dir/net/InetAddr.o"
+  "CMakeFiles/demo.dir/net/Server.o"
+  "CMakeFiles/demo.dir/net/Socket.o"
   "demo.pdb"
   "demo"
 )

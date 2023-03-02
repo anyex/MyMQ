@@ -1,5 +1,10 @@
 #include "Channel.hpp"
 
+Channel::Channel()
+{
+    
+}
+
 Channel::Channel(EventLoop *loop,int fd):loop(loop),fd(fd)
 {
 
@@ -26,5 +31,10 @@ void Channel::HandleEvent()
     {
         LOGD("有数据可写");
     }
+
+}
+
+Channel::~Channel()
+{
 
 }

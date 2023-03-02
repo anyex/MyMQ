@@ -6,5 +6,5 @@ CXX_FLAGS =  -g -std=c++11 -fPIC
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/tbox/MyMQ/util -I/home/tbox/MyMQ/net 
 

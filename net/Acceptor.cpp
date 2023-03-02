@@ -1,7 +1,8 @@
 #include "Acceptor.hpp"
 
 Acceptor::Acceptor(const InetAddr &addr):
-    acceptSocket(addr)
+    acceptSocket(addr),
+    acceptChannel(),
 {
        acceptSocket.Bind(addr);
        
@@ -10,4 +11,5 @@ Acceptor::Acceptor(const InetAddr &addr):
 void Acceptor::Listen()
 {
     acceptSocket.Listen();
+    
 }

@@ -1,13 +1,27 @@
 #include "Socket.hpp"
-#include "Logger.hpp"
+#include "../util/Logger/Logger.hpp"
 #include <sys/socket.h>
 #include <unistd.h>
 #include <sys/types.h>
 void Socket::Bind(const InetAddr &localAddr)
 {
-    if(0 != bind(sockfd, (sockaddr*)localAddr.GetSockAddr(),sizeof(sockaddr_u)))
+    if (localAddr.GetDomain() == AF_UNIX)
     {
-        LOGE("bind failed %s",strerror(errno));
+        if (0 != bind(sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_un)))
+        {
+            LOGE("bind failed %s", strerror(errno));
+        }else{
+            LOGD("bind succ");
+        }
+    }
+    else
+    {
+        if (0 != bind(sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_in)))
+        {
+            LOGE("bind failed %s", strerror(errno));
+        }else{
+            LOGD("bind succ");
+        }
     }
 }
 

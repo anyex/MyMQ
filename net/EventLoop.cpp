@@ -1,7 +1,8 @@
 #include "EventLoop.hpp"
 #include "Epoller.hpp"
 #include "Channel.hpp"
-EventLoop::EventLoop()
+EventLoop::EventLoop():
+    poller(new Epoller(this))
 {
 
 }

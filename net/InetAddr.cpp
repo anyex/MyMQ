@@ -1,5 +1,4 @@
 #include "InetAddr.hpp"
-#include <strings.h>
 InetAddr::InetAddr(int port,std::string ip)
 {
     bzero(&addr,sizeof(addr));
