@@ -3,8 +3,9 @@
 #include "Channel.hpp"
 class Acceptor{
 public:
-    Acceptor(const InetAddr &addr);
+    Acceptor(const InetAddr &addr,EventLoop* loop);
     void Listen();
+    
 private:
     Socket acceptSocket;
     Channel acceptChannel;

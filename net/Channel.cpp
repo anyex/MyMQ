@@ -1,5 +1,6 @@
 #include "Channel.hpp"
-
+#include "Epoller.hpp"
+#include "EventLoop.hpp"
 Channel::Channel()
 {
     
@@ -31,6 +32,13 @@ void Channel::HandleEvent()
     {
         LOGD("有数据可写");
     }
+
+}
+
+
+void Channel::UpDateEvent()
+{
+    loop->UpDateChannel(this);
 
 }
 

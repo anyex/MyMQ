@@ -8,6 +8,7 @@ public:
     EventLoop();
     ~EventLoop();
     void Loop();
+    void UpDateChannel(Channel *channel);
 private:
     void HandleRead();
 

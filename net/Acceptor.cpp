@@ -1,8 +1,9 @@
 #include "Acceptor.hpp"
 
-Acceptor::Acceptor(const InetAddr &addr):
+Acceptor::Acceptor(const InetAddr &addr,EventLoop* loop):
     acceptSocket(addr),
-    acceptChannel(),
+    acceptChannel(loop,acceptSocket.GetFd()),
+    loop(loop)
 {
        acceptSocket.Bind(addr);
        
@@ -11,5 +12,5 @@ Acceptor::Acceptor(const InetAddr &addr):
 void Acceptor::Listen()
 {
     acceptSocket.Listen();
-    
+    acceptChannel.EnableRead();
 }

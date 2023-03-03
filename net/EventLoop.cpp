@@ -31,3 +31,15 @@ void EventLoop::Loop()
     }
     
 }
+
+void EventLoop::UpDateChannel(Channel *channel)
+{
+    for (int i = 0; i < vecActiveChannels.size(); i++)
+    {
+       if(vecActiveChannels[i] == channel)
+       {
+
+       }
+    }
+    
+}
