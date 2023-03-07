@@ -7,9 +7,10 @@
 
 Epoller::Epoller(EventLoop *loop)
     :owerLoop(loop),
-    epollfd(epoll_create1(EPOLL_CLOEXEC))
+    m_epollfd(epoll_create1(EPOLL_CLOEXEC)),
+    m_vecEpollEvent(16)
 {
-    if(epollfd < 0)
+    if(m_epollfd < 0)
     {
         LOGE("epoll_create error:%d \n",(errno));
     }
@@ -26,14 +27,14 @@ bool Epoller::HasChannel(Channel *channel)
 
 void Epoller::Poll(std::vector<Channel*> & channels)
 {
-    int numEvents = epoll_wait(epollfd,events_.data(),events_.size(),-1);
+    int numEvents = epoll_wait(m_epollfd,m_vecEpollEvent.data(),m_vecEpollEvent.size(),-1);
     if(numEvents > 0)
     {
         LOGI("%d event trigger",numEvents);
         UpdateActiveChannel(numEvents,channels);
-        if(numEvents == events_.size())
+        if(numEvents == m_vecEpollEvent.size())
         {
-            events_.resize(events_.size() * 2);
+            m_vecEpollEvent.resize(m_vecEpollEvent.size() * 2);
         }
     }else if(0 == numEvents)
     {
@@ -48,8 +49,8 @@ void Epoller::UpdateActiveChannel(int numEvents,std::vector<Channel*>& activeCha
 {
     for (int i = 0; i < numEvents; i++)
     {
-        Channel *channel = static_cast<Channel*>(events_[i].data.ptr);
-        channel->SetEvents(events_[i].events);
+        Channel *channel = static_cast<Channel*>(m_vecEpollEvent[i].data.ptr);
+        channel->SetEvents(m_vecEpollEvent[i].events);
         activeChannels.push_back(channel);
     }
     
@@ -65,7 +66,7 @@ void Epoller::ControlChannel(int op,Channel *channel)
     event.data.ptr = channel;
     event.events = channel->GetEvents();
 
-    if(epoll_ctl(epollfd,op,fd,&event) < 0)
+    if(epoll_ctl(m_epollfd,op,fd,&event) < 0)
     {
         LOGE("epoll ctl op:%d, error:%d",op,errno);
     }

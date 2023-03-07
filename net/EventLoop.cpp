@@ -2,7 +2,8 @@
 #include "Epoller.hpp"
 #include "Channel.hpp"
 EventLoop::EventLoop():
-    poller(new Epoller(this))
+    m_pEpoller(new Epoller(this)),
+    m_shutdown(false)
 {
 
 }
@@ -19,27 +20,18 @@ void EventLoop::HandleRead()
 
 void EventLoop::Loop()
 {
-    while (true)
+    while (m_shutdown)
     {
-        vecActiveChannels.clear();
-        poller->Poll(vecActiveChannels);
-        for (Channel* channel : vecActiveChannels)
+        m_vecActiveChannels.clear();
+        m_pEpoller->Poll(m_vecActiveChannels);
+        for (Channel* channel : m_vecActiveChannels)
         {
            channel->HandleEvent();
         }
-        
     }
-    
 }
 
 void EventLoop::UpDateChannel(Channel *channel)
 {
-    for (int i = 0; i < vecActiveChannels.size(); i++)
-    {
-       if(vecActiveChannels[i] == channel)
-       {
-
-       }
-    }
-    
+       
 }

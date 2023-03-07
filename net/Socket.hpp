@@ -2,16 +2,16 @@
 class Socket{
 public:
     Socket(int sockfd):
-        sockfd(sockfd)
+        m_sockfd(sockfd)
     {};
     Socket(const InetAddr &localAddr)
     {
-        sockfd = socket(localAddr.GetDomain(),SOCK_STREAM |SOCK_NONBLOCK|SOCK_CLOEXEC,0);
+        m_sockfd = socket(localAddr.GetDomain(),SOCK_STREAM |SOCK_NONBLOCK|SOCK_CLOEXEC,0);
     };
-    int GetFd(){return sockfd;};
+    int GetFd(){return m_sockfd;};
     void Bind(const InetAddr &localAddr);
     void Listen();
     int Accept(InetAddr *peerAddr);
 private:
-     int sockfd;
+     int m_sockfd;
 };

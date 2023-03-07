@@ -1,27 +1,27 @@
 #include "InetAddr.hpp"
 InetAddr::InetAddr(int port,std::string ip)
 {
-    bzero(&addr,sizeof(addr));
-    sockaddr_in *addr_in =(sockaddr_in*) &addr;
+    bzero(&m_addr,sizeof(m_addr));
+    sockaddr_in *addr_in =(sockaddr_in*) &m_addr;
     addr_in->sin_family = AF_INET;
     addr_in->sin_port = htons(port);
     addr_in->sin_addr.s_addr = inet_addr(ip.c_str());
-    domain = AF_INET;
+    m_domain = AF_INET;
 }
 
 InetAddr::InetAddr(std::string path)
 {
-    bzero(&addr,sizeof(addr));
-    sockaddr_un *addr_un = (sockaddr_un*) &addr;
+    bzero(&m_addr,sizeof(m_addr));
+    sockaddr_un *addr_un = (sockaddr_un*) &m_addr;
     addr_un->sun_family = AF_UNIX;
 
     strncpy(addr_un->sun_path,
         path.c_str(),
         std::min(sizeof(addr_un->sun_path),path.length()));
-    domain = AF_UNIX;
+    m_domain = AF_UNIX;
 }
 
 const sockaddr * const InetAddr::GetAddr()
 {
-    return &addr.sa;
+    return &m_addr.sa;
 }

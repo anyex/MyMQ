@@ -9,6 +9,6 @@ public:
     Server(std::string name,const InetAddr &addr);
     void Start();
 private:
-    Acceptor acceptor;
-    EventLoop loop;
+    std::unique_ptr<Acceptor> m_acceptor;
+
 };

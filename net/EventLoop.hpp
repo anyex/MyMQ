@@ -1,5 +1,6 @@
 #include <vector>
 #include <memory>
+#include <atomic>
 class Channel;
 class Epoller;
 class EventLoop
@@ -12,8 +13,9 @@ public:
 private:
     void HandleRead();
 
-    std::vector<Channel*> vecActiveChannels;
+    std::vector<Channel*> m_vecActiveChannels;
 
-    std::unique_ptr<Epoller> poller;
+    std::unique_ptr<Epoller> m_pEpoller;
 
+    std::atomic<bool> m_shutdown;
 };

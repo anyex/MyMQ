@@ -21,15 +21,15 @@ public:
     InetAddr(std::string path);
     InetAddr(){};
     const sockaddr * const GetAddr();
-    const sockaddr* GetSockAddr() const {return &addr.sa;};
+    const sockaddr* GetSockAddr() const {return &m_addr.sa;};
     void SetSockAddr(sockaddr_u addr) {
-      this->addr = addr;
+      this->m_addr = addr;
     };
     const int GetDomain() const{
-      return domain;
+      return m_domain;
     };
 private:
-    sockaddr_u addr;
-    int domain;
+    sockaddr_u m_addr;
+    int m_domain;
 };
 #endif

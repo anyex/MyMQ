@@ -3,9 +3,9 @@
 Connection::Connection(EventLoop *loop,
         const std::string &name,
         int sockfd)
-    :loop(loop),name(name),
-    socket(new Socket(sockfd)),
-    channel(new Channel(loop,sockfd))
+    :m_pLoop(m_pLoop),m_sName(name),
+    m_pSocket(new Socket(sockfd)),
+    m_pChannel(new Channel(m_pLoop,sockfd))
 {
 
 };

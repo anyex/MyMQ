@@ -7,7 +7,7 @@ public:
     void Listen();
     
 private:
-    Socket acceptSocket;
-    Channel acceptChannel;
-    EventLoop *loop;
+    Socket m_acceptSocket;
+    Channel m_acceptChannel;
+    EventLoop *m_ploop;
 };

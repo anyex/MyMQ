@@ -7,7 +7,7 @@ void Socket::Bind(const InetAddr &localAddr)
 {
     if (localAddr.GetDomain() == AF_UNIX)
     {
-        if (0 != bind(sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_un)))
+        if (0 != bind(m_sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_un)))
         {
             LOGE("bind failed %s", strerror(errno));
         }else{
@@ -16,7 +16,7 @@ void Socket::Bind(const InetAddr &localAddr)
     }
     else
     {
-        if (0 != bind(sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_in)))
+        if (0 != bind(m_sockfd, (sockaddr *)localAddr.GetSockAddr(), sizeof(sockaddr_in)))
         {
             LOGE("bind failed %s", strerror(errno));
         }else{
@@ -27,9 +27,9 @@ void Socket::Bind(const InetAddr &localAddr)
 
 void Socket::Listen()
 {
-    if (0 != listen(sockfd, 1024))
+    if (0 != listen(m_sockfd, 1024))
     {
-        LOGE("listen sockfd:%d fail \n", sockfd);
+        LOGE("listen sockfd:%d fail \n", m_sockfd);
     }
 }
 
@@ -39,7 +39,7 @@ int Socket::Accept(InetAddr *peerAddr)
     sockaddr_u addr;
     socklen_t len = sizeof addr;
     bzero(&addr, sizeof addr);
-    int connfd = accept(sockfd, (sockaddr*)&addr, &len);
+    int connfd = accept(m_sockfd, (sockaddr*)&addr, &len);
     if (connfd >= 0)
     {
         peerAddr->SetSockAddr(addr);

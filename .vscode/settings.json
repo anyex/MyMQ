@@ -44,6 +44,8 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "functional": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "queue": "cpp",
+        "shared_mutex": "cpp"
     }
 }

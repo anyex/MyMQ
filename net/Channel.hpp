@@ -12,17 +12,17 @@ public:
     ~Channel();
 
     void HandleEvent();
-    int GetFd() {return fd;};
-    void SetEvents(int events) {this->events = events;};
-    int GetEvents() {return this->events;};
-    void EnableRead(){events |=  EPOLLIN | EPOLLPRI;UpDateEvent();};
-    void EnableWrite(){events |= EPOLLOUT;UpDateEvent();};
+    int GetFd() {return m_fd;};
+    void SetEvents(int events) {this->m_events = events;};
+    int GetEvents() {return this->m_events;};
+    void EnableRead(){m_events |=  EPOLLIN | EPOLLPRI;UpDateEvent();};
+    void EnableWrite(){m_events |= EPOLLOUT;UpDateEvent();};
 private:
     void UpDateEvent();
-    int fd;
-    int events;
-    int revents;
-    EventLoop *loop;
+    int m_fd;
+    int m_events;
+    int m_revents;
+    EventLoop *m_pLoop;
 
 };
 

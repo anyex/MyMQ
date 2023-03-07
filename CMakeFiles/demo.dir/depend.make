@@ -3,19 +3,25 @@
 
 CMakeFiles/demo.dir/main.o: main.cpp
 CMakeFiles/demo.dir/main.o: net/Acceptor.hpp
+CMakeFiles/demo.dir/main.o: net/Channel.hpp
 CMakeFiles/demo.dir/main.o: net/EventLoop.hpp
 CMakeFiles/demo.dir/main.o: net/InetAddr.hpp
 CMakeFiles/demo.dir/main.o: net/Server.hpp
 CMakeFiles/demo.dir/main.o: net/Socket.hpp
 CMakeFiles/demo.dir/main.o: util/Logger/Logger.hpp
+CMakeFiles/demo.dir/main.o: util/Logger/Logger.hpp
 
 CMakeFiles/demo.dir/net/Acceptor.o: net/Acceptor.cpp
 CMakeFiles/demo.dir/net/Acceptor.o: net/Acceptor.hpp
+CMakeFiles/demo.dir/net/Acceptor.o: net/Channel.hpp
 CMakeFiles/demo.dir/net/Acceptor.o: net/InetAddr.hpp
 CMakeFiles/demo.dir/net/Acceptor.o: net/Socket.hpp
+CMakeFiles/demo.dir/net/Acceptor.o: util/Logger/Logger.hpp
 
 CMakeFiles/demo.dir/net/Channel.o: net/Channel.cpp
 CMakeFiles/demo.dir/net/Channel.o: net/Channel.hpp
+CMakeFiles/demo.dir/net/Channel.o: net/Epoller.hpp
+CMakeFiles/demo.dir/net/Channel.o: net/EventLoop.hpp
 CMakeFiles/demo.dir/net/Channel.o: util/Logger/Logger.hpp
 
 CMakeFiles/demo.dir/net/Connection.o: net/Channel.hpp
@@ -40,11 +46,13 @@ CMakeFiles/demo.dir/net/InetAddr.o: net/InetAddr.cpp
 CMakeFiles/demo.dir/net/InetAddr.o: net/InetAddr.hpp
 
 CMakeFiles/demo.dir/net/Server.o: net/Acceptor.hpp
+CMakeFiles/demo.dir/net/Server.o: net/Channel.hpp
 CMakeFiles/demo.dir/net/Server.o: net/EventLoop.hpp
 CMakeFiles/demo.dir/net/Server.o: net/InetAddr.hpp
 CMakeFiles/demo.dir/net/Server.o: net/Server.cpp
 CMakeFiles/demo.dir/net/Server.o: net/Server.hpp
 CMakeFiles/demo.dir/net/Server.o: net/Socket.hpp
+CMakeFiles/demo.dir/net/Server.o: util/Logger/Logger.hpp
 
 CMakeFiles/demo.dir/net/Socket.o: net/InetAddr.hpp
 CMakeFiles/demo.dir/net/Socket.o: net/Socket.cpp

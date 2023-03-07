@@ -18,6 +18,6 @@ protected:
 private:
     void UpdateActiveChannel(int numEvents, std::vector<Channel *> &activeChannels);
     EventLoop *owerLoop;
-    int epollfd;
-    std::vector<epoll_event> events_;
+    int m_epollfd;
+    std::vector<epoll_event> m_vecEpollEvent;
 };

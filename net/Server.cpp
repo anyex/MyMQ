@@ -1,6 +1,6 @@
 #include "Server.hpp"
 
-Server::Server(std::string name,const InetAddr &addr):acceptor(addr)
+Server::Server(std::string name,const InetAddr &addr):acceptor(addr,&loop)
 {
     
 }

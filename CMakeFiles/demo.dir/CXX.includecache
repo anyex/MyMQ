@@ -25,10 +25,16 @@ InetAddr.hpp
 /home/tbox/MyMQ/net/InetAddr.hpp
 Socket.hpp
 /home/tbox/MyMQ/net/Socket.hpp
+Channel.hpp
+/home/tbox/MyMQ/net/Channel.hpp
 
 /home/tbox/MyMQ/net/Channel.cpp
 Channel.hpp
 /home/tbox/MyMQ/net/Channel.hpp
+Epoller.hpp
+/home/tbox/MyMQ/net/Epoller.hpp
+EventLoop.hpp
+/home/tbox/MyMQ/net/EventLoop.hpp
 
 /home/tbox/MyMQ/net/Channel.hpp
 functional
@@ -153,6 +159,10 @@ sys/types.h
 -
 errno.h
 -
+chrono
+-
+sys/time.h
+-
 
 util/Logger/Logger.hpp
 iostream
@@ -166,5 +176,9 @@ stdint.h
 sys/types.h
 -
 errno.h
+-
+chrono
+-
+sys/time.h
 -
 
