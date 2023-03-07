@@ -14,3 +14,8 @@ void Acceptor::Listen()
     m_acceptSocket.Listen();
     m_acceptChannel.EnableRead();
 }
+
+void Acceptor::SetConnectedCallback(std::function<void(int sockfd,const InetAddr &)> &func)
+{
+    m_newConnCallback = func;
+}

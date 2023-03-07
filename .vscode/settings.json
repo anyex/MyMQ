@@ -46,6 +46,10 @@
         "functional": "cpp",
         "iterator": "cpp",
         "queue": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "condition_variable": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "cinttypes": "cpp"
     }
 }
