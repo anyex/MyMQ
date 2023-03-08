@@ -47,14 +47,17 @@ void EventLoop::UpDateChannel(Channel *channel)
                 return;
             }
             m_channels[fd] = std::shared_ptr<Channel>(channel);
+            m_pEpoller->ControlChannel(EPOLL_CTL_ADD,channel);
+
         }else{
             if(m_channels.find(fd) == m_channels.end())
             {
                 LOGE("fd=%d, not in channels",fd);
                 return;
             }
+            m_pEpoller->ControlChannel(EPOLL_CTL_DEL,channel);
         }
     }else{
-        
+        m_pEpoller->ControlChannel(EPOLL_CTL_MOD,channel);
     }
 }

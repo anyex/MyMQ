@@ -6,7 +6,7 @@
 int main()
 {
     
-    Server server("tbox",InetAddr("tbox.sock"));
+    Server server("tbox",2,InetAddr("tbox.sock"));
     server.Start();
     LOGD("调试日志");
     sleep(-1);

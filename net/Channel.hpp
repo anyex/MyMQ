@@ -1,3 +1,6 @@
+#ifndef CHANNEL_H_
+#define CHANNEL_H_
+
 #include <functional>
 #include <sys/epoll.h>
 #include "../util/Logger/Logger.hpp"
@@ -34,3 +37,5 @@ private:
     channel_net_status m_channel_status;
 };
 
+
+#endif

@@ -19,7 +19,7 @@ Server::Server(std::string name,int threads,const InetAddr &addr):
 
 void Server::OnConnected(int sockfd, const InetAddr &peerAddr)
 {
-    std::shared_ptr<Connection> p_conn = std::make_shared<Connection>(sockfd,GetNextLoop());
+    std::shared_ptr<Connection> p_conn = std::make_shared<Connection>(GetNextLoop().get(),sockfd);
     m_Connections.insert({{sockfd,p_conn}});
 }
 
@@ -27,7 +27,7 @@ void Server::Start()
 {
     {
       m_acceptor->Listen();
-      std::function<void()> sub_loop = std::bind(&EventLoop::Loop, m_mainEventLoop);
+      std::function<void()> sub_loop = std::bind(&EventLoop::Loop, &m_mainEventLoop);
       m_threadPool.submit(sub_loop);
     }
     for (int i = 0; i < m_nThreads; i++)

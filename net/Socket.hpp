@@ -1,3 +1,5 @@
+#ifndef SOCKET_H_
+#define SOCKET_H_
 #include "InetAddr.hpp"
 class Socket{
 public:
@@ -15,3 +17,5 @@ public:
 private:
      int m_sockfd;
 };
+
+#endif

@@ -10,6 +10,5 @@ aux_source_directory(util UTIL_SRC_LIST)
 aux_source_directory(. SRC_LIST)
 INCLUDE_DIRECTORIES(util net)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -fPIC")
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -fPIC -pthread")
 ADD_EXECUTABLE(demo ${SRC_LIST} ${NET_SRC_LIST} ${UTIL_SRC_LIST})

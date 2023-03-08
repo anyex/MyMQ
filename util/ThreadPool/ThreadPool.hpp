@@ -41,7 +41,7 @@ public:
         {
             (*task_ptr)();
         };
-        m_queue.enqueue(warpper_func);
+        m_queue.EnQueue(warpper_func);
         m_conditional_lock.notify_one();
         return task_ptr->get_future();
     }
@@ -77,7 +77,7 @@ private:
         ThreadPool *m_pool;
     };
     std::atomic<bool> m_shutdown;
-    SafeQueue<std::function<void>> m_queue;
+    SafeQueue<std::function<void()>> m_queue;
     std::vector<std::thread> m_threads;
     std::mutex m_conditional_mutex;
     std::condition_variable m_conditional_lock;

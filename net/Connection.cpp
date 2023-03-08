@@ -1,9 +1,8 @@
 #include "Connection.hpp"
 
 Connection::Connection(EventLoop *loop,
-        const std::string &name,
         int sockfd)
-    :m_pLoop(m_pLoop),m_sName(name),
+    :m_pLoop(m_pLoop),
     m_pSocket(new Socket(sockfd)),
     m_pChannel(new Channel(m_pLoop,sockfd))
 {

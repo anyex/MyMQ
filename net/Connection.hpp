@@ -13,7 +13,6 @@ class Connection
 
 public:
     Connection(EventLoop *loop,
-        const std::string &name,
         int sockfd);
     bool Connected();
     void Send(const std::string &buf);
