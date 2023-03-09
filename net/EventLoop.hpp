@@ -7,7 +7,7 @@ class Epoller;
 class EventLoop
 {
 public:
-    EventLoop();
+    EventLoop(std::string name);
     ~EventLoop();
     void Loop();
     void UpDateChannel(Channel *channel);
@@ -21,4 +21,6 @@ private:
     std::atomic<bool> m_shutdown;
 
     std::map<int,std::shared_ptr<Channel>> m_channels;
+
+    std::string m_sName;
 };

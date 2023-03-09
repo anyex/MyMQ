@@ -5,6 +5,7 @@ class Acceptor{
 public:
     Acceptor(const InetAddr &addr,EventLoop* loop);
     void Listen();
+    void HandRead();
     void SetConnectedCallback(std::function<void(int sockfd,const InetAddr &)> &func);
 private:
     Socket m_acceptSocket;

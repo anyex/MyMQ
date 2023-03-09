@@ -1,9 +1,11 @@
 #include "EventLoop.hpp"
 #include "Epoller.hpp"
 #include "Channel.hpp"
-EventLoop::EventLoop():
+#include <sys/prctl.h>
+EventLoop::EventLoop(std::string name):
     m_pEpoller(new Epoller(this)),
-    m_shutdown(false)
+    m_shutdown(false),
+    m_sName(name)
 {
 
 }
@@ -20,7 +22,9 @@ void EventLoop::HandleRead()
 
 void EventLoop::Loop()
 {
-    while (m_shutdown)
+    prctl(PR_SET_NAME,m_sName.c_str());
+    
+    while (!m_shutdown)
     {
         m_vecActiveChannels.clear();
         m_pEpoller->Poll(m_vecActiveChannels);

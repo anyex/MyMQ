@@ -50,7 +50,7 @@ void Epoller::UpdateActiveChannel(int numEvents,std::vector<Channel*>& activeCha
     for (int i = 0; i < numEvents; i++)
     {
         Channel *channel = static_cast<Channel*>(m_vecEpollEvent[i].data.ptr);
-        channel->SetEvents(m_vecEpollEvent[i].events);
+        channel->SetRevents(m_vecEpollEvent[i].events);
         activeChannels.push_back(channel);
     }
     
@@ -65,6 +65,8 @@ void Epoller::ControlChannel(int op,Channel *channel)
     event.data.fd = fd;
     event.data.ptr = channel;
     event.events = channel->GetEvents();
+
+    LOGD("contorl channel: events:%d,op:%d",event.events,op);
 
     if(epoll_ctl(m_epollfd,op,fd,&event) < 0)
     {

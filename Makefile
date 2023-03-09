@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anyex/WtTbox
+CMAKE_SOURCE_DIR = /home/tbox/MyMQ
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anyex/WtTbox
+CMAKE_BINARY_DIR = /home/tbox/MyMQ
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anyex/WtTbox/CMakeFiles /home/anyex/WtTbox/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tbox/MyMQ/CMakeFiles /home/tbox/MyMQ/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anyex/WtTbox/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tbox/MyMQ/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,34 @@ demo: cmake_check_build_system
 demo/fast:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
 .PHONY : demo/fast
+
+#=============================================================================
+# Target rules for targets named cli_demo
+
+# Build rule for target.
+cli_demo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cli_demo
+.PHONY : cli_demo
+
+# fast build rule for target.
+cli_demo/fast:
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/build
+.PHONY : cli_demo/fast
+
+# target to build an object file
+cli/main.o:
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/cli/main.o
+.PHONY : cli/main.o
+
+# target to preprocess a source file
+cli/main.i:
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/cli/main.i
+.PHONY : cli/main.i
+
+# target to generate assembly for a file
+cli/main.s:
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/cli/main.s
+.PHONY : cli/main.s
 
 # target to build an object file
 main.o:
@@ -267,6 +295,10 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... demo"
 	@echo "... edit_cache"
+	@echo "... cli_demo"
+	@echo "... cli/main.o"
+	@echo "... cli/main.i"
+	@echo "... cli/main.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

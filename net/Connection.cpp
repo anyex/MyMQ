@@ -16,6 +16,5 @@ Connection::Connection(EventLoop *loop,
 
  bool Connection::Connected()
  {
-   LOGD("new conntion ");
     return true;
  }
