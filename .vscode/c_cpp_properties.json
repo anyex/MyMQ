@@ -8,7 +8,8 @@
                 "/usr/include/c++/7",
                 "/usr/include/x86_64-linux-gnu/c++/7",
                 "/usr/include",
-                "/usr/include/linux"
+                "/usr/include/linux",
+                "/usr/include/c++/9"
             ],
             "defines": [],
             "compilerPath": "",
