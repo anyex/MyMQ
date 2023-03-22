@@ -8,13 +8,13 @@ class PacketStreambuf:public std::streambuf{
             m_gbuf.resize(size);
             m_pbuf.resize(size);
 
-            setg(m_gbuf.data(),m_gbuf.data(),m_gbuf.data());
+            setg(m_gbuf.data(),m_gbuf.data(),m_gbuf.end().base());
             setp(m_pbuf.data(),m_pbuf.end().base());
             
         };
         virtual ~PacketStreambuf()
         {
-            
+
         };
 
         int underflow(){
