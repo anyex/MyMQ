@@ -1,0 +1,17 @@
+/
+*
+* 支持类型uint8_t,uint16_t,uint32_t,int8_t,int16_t,int32_t,int64_t,string,bits,stream
+  bits: 二进制数据
+  stream: 不定长二进制数据
+/
+
+message SPI_DATA{
+    uint16_t head = 1;
+    uint8_t  channel = 2;
+    bits   reserve:7 = 3;
+    bits   EncryptFlag = 4;
+    uint8_t count = 5;
+    uint16_t length = 6;
+    stream  data = 7;
+    uint16_t crc = 8;
+}

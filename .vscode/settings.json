@@ -51,6 +51,8 @@
         "future": "cpp",
         "mutex": "cpp",
         "cinttypes": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "bitset": "cpp",
+        "cstring": "cpp"
     }
 }
