@@ -152,6 +152,24 @@ cli/main.s:
 .PHONY : cli/main.s
 
 # target to build an object file
+codec/stream.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/codec/stream.o
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/codec/stream.o
+.PHONY : codec/stream.o
+
+# target to preprocess a source file
+codec/stream.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/codec/stream.i
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/codec/stream.i
+.PHONY : codec/stream.i
+
+# target to generate assembly for a file
+codec/stream.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/codec/stream.s
+	$(MAKE) -f CMakeFiles/cli_demo.dir/build.make CMakeFiles/cli_demo.dir/codec/stream.s
+.PHONY : codec/stream.s
+
+# target to build an object file
 main.o:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.o
 .PHONY : main.o
@@ -299,6 +317,9 @@ help:
 	@echo "... cli/main.o"
 	@echo "... cli/main.i"
 	@echo "... cli/main.s"
+	@echo "... codec/stream.o"
+	@echo "... codec/stream.i"
+	@echo "... codec/stream.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

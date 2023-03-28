@@ -4,8 +4,7 @@
 #include "../util/Logger/Logger.hpp"
 #include <error.h>
 #include <iostream>
-#include "../net/Buffer.hpp"
-
+#include "../codec/stream.hpp"
 int main()
 {
     int  cli = socket(AF_UNIX,SOCK_STREAM,0);
@@ -21,16 +20,13 @@ int main()
         LOGD("conn succ");
     }
     std::string content;
+    SocketStream stream(cli);
     while (true)
     {
-         std::cin>>content;
-        Buffer buffer;
-        buffer.Append(content.c_str(),content.length());
-        buffer.PrependInt32(content.length());
-        std::string send_content = buffer.SerialString();
-       int ret = send(cli,send_content.c_str(),send_content.length(),0);
-       LOGD("send: ret:%d",ret);
-       
+        std::cin>>content;
+      // int ret = send(cli,content.c_str(),content.length(),0);
+       stream<<content;
+       LOGD("发送数据:%d",content.size());
     }
     
    

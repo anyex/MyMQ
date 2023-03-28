@@ -2,9 +2,10 @@
 #include "net/InetAddr.hpp"
 #include "net/Server.hpp"
 #include <unistd.h>
-#include "net/IoBuf.hpp"
 int main()
 {
-    
+    InetAddr addr("tbox.sock");
+    Server test("test",1,addr);
+    test.Start();
     return 0;
 }

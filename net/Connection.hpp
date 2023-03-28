@@ -4,8 +4,7 @@
 #include <string>
 #include <memory>
 #include <atomic>
-#include "Buffer.hpp"
-
+#include "../codec/stream.hpp"
 class EventLoop;
 
 class Connection
@@ -22,6 +21,5 @@ private:
     std::unique_ptr<Socket> m_pSocket;
     std::unique_ptr<Channel> m_pChannel;
     std::string m_sName;
-    Buffer m_input;
-    Buffer m_output;
+    SocketStream m_stream;
 };

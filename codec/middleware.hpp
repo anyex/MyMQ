@@ -2,35 +2,32 @@
 #include <bitset>
 #include <sstream>
 #include <vector>
-class PacketStreambuf:public std::streambuf{
-    public:
-        PacketStreambuf(std::size_t size=128):m_size(size){
-            m_gbuf.resize(size);
-            m_pbuf.resize(size);
+#include <iostream>
+#include <sstream>
+#include <cstring>
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
-            setg(m_gbuf.data(),m_gbuf.data(),m_gbuf.end().base());
-            setp(m_pbuf.data(),m_pbuf.end().base());
-            
-        };
-        virtual ~PacketStreambuf()
-        {
 
-        };
+class StreamBuf:public std::streambuf{
+public:
+   StreamBuf(ssize_t buf_size);
+   virtual ~StreamBuf();
 
-        int underflow(){
-          
-        };
-        int overflow(){
+   int underflow();
+   int overflow(int c=traits_type::eof());
+   int sync();
 
-        };
-        int sync(){
+protected:
+   virtual ssize_t recv(void *buf,ssize_t len,int flags) = 0;
+   virtual ssize_t send(const void *buf,ssize_t len,int flags) = 0;
 
-        };
-    private:
-        std::size_t m_size;
-        std::vector<char> m_gbuf;
-        std::vector<char> m_pbuf;
+   const ssize_t m_buf_size;
 };
+
+
+
+
 
 struct middleware_data{
      uint16_t head;
@@ -49,6 +46,8 @@ struct middleware_data{
         {
             serial_buffer<<item;
         }
+        return serial_buffer;
+   
      };
      void Parse(std::stringstream &src)
      {
