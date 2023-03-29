@@ -76,15 +76,15 @@ int StreamBuf::overflow(int c)
     return write(m_socket_fd,buf,len);
  }
 
-std::streamsize StreamBuf::xsputn(const char* s,std::streamsize n)
-{
-    return psend(s,n,0);
-}
+// std::streamsize StreamBuf::xsputn(const char* s,std::streamsize n)
+// {
+//     return psend(s,n,0);
+// }
 
- std::streamsize StreamBuf::xsgetn(char* s, std::streamsize n)
- {
-    return grecv(eback(), m_buf_size, 0);
- }
+//  std::streamsize StreamBuf::xsgetn(char* s, std::streamsize n)
+//  {
+//     return grecv(eback(), m_buf_size, 0);
+//  }
 
 
 SocketStream::SocketStream(int sockfd,ssize_t size):

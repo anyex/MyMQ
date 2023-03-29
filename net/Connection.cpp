@@ -1,5 +1,5 @@
 #include "Connection.hpp"
-
+#include "../codec/stream.hpp"
 Connection::Connection(EventLoop *loop,
         int sockfd)
     :m_pLoop(loop),
@@ -23,7 +23,6 @@ Connection::Connection(EventLoop *loop,
 
  void Connection::HandleRead()
  {
-   std::string body;
-   m_stream >>body;
-   LOGD("接收到数据 %s",body.c_str());
+   Message msg;
+   m_stream>>msg;
  }

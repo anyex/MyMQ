@@ -5,6 +5,7 @@
 #include <error.h>
 #include <iostream>
 #include "../codec/stream.hpp"
+
 int main()
 {
     int  cli = socket(AF_UNIX,SOCK_STREAM,0);
@@ -24,14 +25,10 @@ int main()
     while (true)
     {
         std::cin>>content;
-      // int ret = send(cli,content.c_str(),content.length(),0);
-       stream<<content;
+        stream<<content<<std::endl;
+
        LOGD("发送数据:%d",content.size());
     }
-    
-   
-
-
     
     return 0;
 }

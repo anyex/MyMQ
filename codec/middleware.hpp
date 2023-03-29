@@ -8,27 +8,6 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
-
-class StreamBuf:public std::streambuf{
-public:
-   StreamBuf(ssize_t buf_size);
-   virtual ~StreamBuf();
-
-   int underflow();
-   int overflow(int c=traits_type::eof());
-   int sync();
-
-protected:
-   virtual ssize_t recv(void *buf,ssize_t len,int flags) = 0;
-   virtual ssize_t send(const void *buf,ssize_t len,int flags) = 0;
-
-   const ssize_t m_buf_size;
-};
-
-
-
-
-
 struct middleware_data{
      uint16_t head;
      uint8_t  channel;
