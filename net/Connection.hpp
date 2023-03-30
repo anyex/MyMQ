@@ -22,4 +22,5 @@ private:
     std::unique_ptr<Channel> m_pChannel;
     std::string m_sName;
     SocketStream m_stream;
+    
 };

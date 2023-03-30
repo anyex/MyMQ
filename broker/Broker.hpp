@@ -3,7 +3,9 @@
 #include <map>
 #include "Publisher.hpp"
 #include <memory>
-class Broker{
+#include "../net/Server.hpp"
+
+class Broker :public Server{
 public:
     Broker(std::string name);
     void OnMessage(std::shared_ptr<Message> msg);

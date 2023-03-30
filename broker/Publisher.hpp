@@ -1,4 +1,6 @@
 #include "Subscriber.hpp"
+#include <memory>
+#include <map>
 class Publisher{
 
 public:

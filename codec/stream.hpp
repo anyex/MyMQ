@@ -1,3 +1,5 @@
+#ifndef __STREAM__H_
+#define __STREAM__H_
 #include <iostream>
 #include <bitset>
 #include <sstream>
@@ -8,6 +10,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <memory>
 enum MESSAGE_TYPE{
     SUBCRIBER,//订阅
     UNSUBCRIBR,//取消订阅
@@ -19,13 +22,22 @@ enum MESSAGE_TYPE{
 
 class Message{
 public:
-    Message();
-    virtual std::string SerialAsString();
-    virtual void Parse(std::string &content);
-    void SerialPacket();
-    std::string &Content(){
+    Message(){
+
+    };
+    virtual std::string  SerialAsString(){
+
+    };
+    virtual void Parse(){
+
+    };
+    std::string &Intances(){
       return m_content;
     }
+    std::string SerialPacket(){
+         std::stringstream packet();
+    };
+
 protected:
     MESSAGE_TYPE m_type;
     std::string m_content;
@@ -38,11 +50,7 @@ public:
 
    int underflow();
    int overflow(int c=traits_type::eof());
-   int sync();
-   
-   // std::streamsize xsputn(const char* s,std::streamsize n);
-   // std::streamsize xsgetn(char* s, std::streamsize n);
-   
+   int sync();   
    
 protected:
    virtual ssize_t grecv(void *buf,ssize_t len,int flags) ;
@@ -55,12 +63,12 @@ protected:
 class SocketStream :public std::iostream{
    public:
       SocketStream(int sockfd,ssize_t size = 1024);
-      std::ostream & operator<<(Message & msg){
-         *this<< msg.Content();
+      std::ostream & operator<<(std::shared_ptr<Message> msg){
+         *this<< msg->Intances();
          return *this;
       };
-      std::istream & operator >>(Message &msg){
-          *this>> msg.Content();
+      std::istream & operator >>(std::shared_ptr<Message> msg){
+          *this>> msg->Intances();
          return *this;
       };
       virtual ~SocketStream();
@@ -71,3 +79,4 @@ class SocketStream :public std::iostream{
 
 
 
+#endif

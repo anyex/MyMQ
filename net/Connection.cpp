@@ -23,6 +23,10 @@ Connection::Connection(EventLoop *loop,
 
  void Connection::HandleRead()
  {
-   Message msg;
-   m_stream>>msg;
+      std::shared_ptr<Message> msg = std::make_shared<Message>();
+      m_stream>>msg;
+      if(m_stream.good() && m_stream.gcount())
+      {
+         
+      }
  }

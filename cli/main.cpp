@@ -25,7 +25,7 @@ int main()
     while (true)
     {
         std::cin>>content;
-        stream<<content<<std::endl;
+        stream<<content;
 
        LOGD("发送数据:%d",content.size());
     }

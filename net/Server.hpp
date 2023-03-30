@@ -12,9 +12,8 @@ class Server{
 public:
     Server(std::string name,int threads,const InetAddr &addr);
     void Start();
-
+    //virtual void OnMessage(std::shared_ptr<Message> msg);
     void OnConnected(int sockfd, const InetAddr &peerAddr);
-    void Connect(const InetAddr &serverAddr,);
 private:
     std::shared_ptr<EventLoop> GetNextLoop();
     std::unique_ptr<Acceptor> m_acceptor;

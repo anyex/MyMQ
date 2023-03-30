@@ -14,6 +14,7 @@ public:
     void Bind(const InetAddr &localAddr);
     void Listen();
     int Accept(InetAddr *peerAddr);
+    int Connect();
 private:
      int m_sockfd;
 };

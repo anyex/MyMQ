@@ -28,8 +28,12 @@ public:
     const int GetDomain() const{
       return m_domain;
     };
+    int GetSockLen(){
+      return m_socket_len;
+    };
 private:
     sockaddr_u m_addr;
     int m_domain;
+    int m_socket_len;
 };
 #endif
